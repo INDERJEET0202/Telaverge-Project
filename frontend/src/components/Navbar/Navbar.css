@@ -1,0 +1,17 @@
+.logo {
+  width: 220px;
+  height: 100px;
+  overflow: hidden;
+  transform: scale(1.15);
+  padding-left: 1rem;
+  margin-left: 4rem;
+}
+
+.logo > a > img {
+  width: 12rem;
+  height: 100%; /* Set the image height to fill the container */
+  object-fit: cover;
+  object-position: center;
+  margin-top: 5px;
+  z-index: -1;
+}
