@@ -5,8 +5,8 @@ import "../Navbar/Navbar.css";
 const Navbar = () => {
     return (
         <>
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
+            <nav className="navbar navbar-expand-lg">
+                <div className="container-fluid">
                     <div className="logo">
                         <a href="/">
                             <img src={logo} alt="" />
