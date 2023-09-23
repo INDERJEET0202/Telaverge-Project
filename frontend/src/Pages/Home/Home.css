@@ -1,0 +1,51 @@
+.container{
+    background-color: white;
+    height: 25rem;
+    border-radius: 10px;
+    z-index: 0 !important;
+    margin-top: -1rem;
+    position: relative;
+}
+
+.upper-container{
+    background-color: rgb(0, 255, 81);
+    height: 5rem;
+    margin: 0 30rem 0rem 30rem;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    z-index: 10 !important;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
+}
+
+.home{
+    height: 60vh;
+    padding-top: 1rem;
+    background-color: darkblue;
+}
+
+.find-flight{
+    border: 1px solid rgb(202, 202, 202);
+    display: flex;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.flight{
+    margin: 15px;
+    color: rgb(36, 36, 36);
+    width: 300px;
+    border-right: 1px solid rgb(139, 139, 139);
+}
+
+.flight h1{
+    margin: 3px;
+}
+
+em{
+    font-size: large;
+    font-weight: 300;
+}
