@@ -1,94 +1,40 @@
 {
     "airports": [
         {
-            "city": "Paris",
-            "country": "France",
-            "code": "CDG",
-            "airport_name": "Charles de Gaulle Airport"
+            "city": "Chennai",
+            "country": "India",
+            "code": "MAA",
+            "airport_name": "Chennai International Airport"
         },
         {
-            "city": "Beijing",
-            "country": "China",
-            "code": "PEK",
-            "airport_name": "Beijing Capital International Airport"
+            "city": "Kolkata",
+            "country": "India",
+            "code": "CCU",
+            "airport_name": "Netaji Subhas Chandra Bose International Airport"
         },
         {
-            "city": "Rio de Janeiro",
-            "country": "Brazil",
-            "code": "GIG",
-            "airport_name": "Rio de Janeiro-Galeão International Airport"
+            "city": "Pune",
+            "country": "India",
+            "code": "PNQ",
+            "airport_name": "Pune Airport"
         },
         {
-            "city": "Cape Town",
-            "country": "South Africa",
-            "code": "CPT",
-            "airport_name": "Cape Town International Airport"
+            "city": "Delhi",
+            "country": "India",
+            "code": "DEL",
+            "airport_name": "Indira Gandhi International Airport"
         },
         {
             "city": "Mumbai",
             "country": "India",
             "code": "BOM",
-            "airport_name": "Chhatrapati Shivaji International Airport"
+            "airport_name": "Chhatrapati Shivaji Maharaj International Airport"
         },
         {
-            "city": "Los Angeles",
-            "country": "United States",
-            "code": "LAX",
-            "airport_name": "Los Angeles International Airport"
-        },
-        {
-            "city": "London",
-            "country": "United Kingdom",
-            "code": "LHR",
-            "airport_name": "Heathrow Airport"
-        },
-        {
-            "city": "Tokyo",
-            "country": "Japan",
-            "code": "HND",
-            "airport_name": "Haneda Airport"
-        },
-        {
-            "city": "Sydney",
-            "country": "Australia",
-            "code": "SYD",
-            "airport_name": "Sydney Kingsford Smith International Airport"
-        },
-        {
-            "city": "Dubai",
-            "country": "United Arab Emirates",
-            "code": "DXB",
-            "airport_name": "Dubai International Airport"
-        },
-        {
-            "city": "Los Angeles",
-            "country": "United States",
-            "code": "LAX",
-            "airport_name": "Los Angeles International Airport"
-        },
-        {
-            "city": "London",
-            "country": "United Kingdom",
-            "code": "LHR",
-            "airport_name": "Heathrow Airport"
-        },
-        {
-            "city": "Tokyo",
-            "country": "Japan",
-            "code": "HND",
-            "airport_name": "Haneda Airport"
-        },
-        {
-            "city": "Sydney",
-            "country": "Australia",
-            "code": "SYD",
-            "airport_name": "Sydney Kingsford Smith International Airport"
-        },
-        {
-            "city": "Dubai",
-            "country": "United Arab Emirates",
-            "code": "DXB",
-            "airport_name": "Dubai International Airport"
+            "city": "Kashmir",
+            "country": "India",
+            "code": "SXR",
+            "airport_name": "Sheikh ul Alam Airport"
         }
     ]
 }

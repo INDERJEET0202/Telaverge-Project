@@ -3,8 +3,11 @@ import "../Home/Home.css"
 import jsonData from "../../assets/json-data/citiesAirport.json";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import waveSvg from '../../assets/wave.svg'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
+import { searchFlightRoute } from '../../utils/APIRoutes';
 
 const Home = () => {
 
@@ -92,7 +95,8 @@ const Home = () => {
 
     // console.log(outputHTML);
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         const formData = {
             from: departure,
             to: arrival,
@@ -102,7 +106,23 @@ const Home = () => {
         if (!formData.from || !formData.to || !formData.departure || !formData.travellers) {
             toast.error("Please fill in all the required fields.");
         } else {
-            console.log(formData);
+            // console.log(formData);
+            console.log("Search btn clicked");
+        };
+
+
+        const fromCity = formData.from.city;
+        const toCity = formData.to.city;
+
+        try{
+            const response = await axios.post(searchFlightRoute, {fromCity, toCity});
+            console.log(response.data.citiesInfo);
+            console.log(response.data.airportsName);
+
+            toast.success("Fetched Successfully");
+        } catch (error){
+            console.log(error);
+            toast.error("Something went wrong. Please try again later.");
         }
     };
 
@@ -206,6 +226,8 @@ const Home = () => {
                             SEARCH
                         </button>
                     </div>
+                    {/* <img className='wave' src={waveSvg} alt="" /> */}
+                    
 
                 </div>
             </div>
