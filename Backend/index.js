@@ -28,7 +28,7 @@ mongoose
         console.log("Error in connecting to server", error);
     });
 
-async function insertFlightData() {
+async function addAirlinesData() {
     try {
         const flightData = require('./json-data/flightsData.json');
 
@@ -42,7 +42,7 @@ async function insertFlightData() {
     }
 }
 
-// insertFlightData(); Insert all the demo data to the database
+// addAirlinesData(); Insert all the demo data to the database
 
 app.post('/flight-informations', async (req, res) => {
     try {
