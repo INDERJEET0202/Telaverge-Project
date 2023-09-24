@@ -1,7 +1,4 @@
-.main-content{
+.main-div-element{
     background-color: violet !important;
-    height: 1920px !important;
-    width: 1920px !important;
-    margin: 10rem;
-    padding: 10rem;
+    
 }

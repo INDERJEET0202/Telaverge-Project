@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
 dotenv.config();
-// const FlightInformation = require("./Models/FlightInformation");
+const FlightInformation = require('./Models/FlightInformation');
+
 
 const app = express();
 app.use(express.json());
@@ -25,22 +26,21 @@ mongoose
         console.log("Error in connecting to server", error);
     });
 
-// async function insertFlightData() {
-//     try {
-//         const flightData = require('./json/flightsData.json'); // Load your JSON data file here
+async function insertFlightData() {
+    try {
+        const flightData = require('./json-data/flightsData.json');
 
-//         // Insert the flight records into the collection
-//         await FlightInformation.insertMany(flightData);
-//         console.log('Flight data inserted successfully.');
-//     } catch (error) {
-//         console.error('Error inserting flight data:', error);
-//     } finally {
-//         mongoose.disconnect(); // Close the MongoDB connection
-//     }
-// }
+
+        await FlightInformation.insertMany(flightData);
+        console.log('Flight data inserted successfully.');
+    } catch (error) {
+        console.error('Error inserting flight data:', error);
+    } finally {
+        mongoose.disconnect();
+    }
+}
 
 // insertFlightData();
-
 
 app.get('/flight-informations', async (req, res) => {
     try {

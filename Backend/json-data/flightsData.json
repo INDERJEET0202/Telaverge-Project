@@ -1,0 +1,377 @@
+[
+    {
+        "departure_airport": "Chennai",
+        "all_flights": [
+            {
+                "flight_id": "FL001",
+                "airline_name": "Indigo Airlines",
+                "flight_number": "AA100",
+                "arrival_airport": "Kolkata",
+                "departure_time": "08:00 AM",
+                "arrival_time": "10:00 AM",
+                "price": 200.0,
+                "available_seats": 150
+            },
+            {
+                "flight_id": "FL002",
+                "airline_name": "Air India",
+                "flight_number": "BB200",
+                "arrival_airport": "Mumbai",
+                "departure_time": "09:30 AM",
+                "arrival_time": "11:30 AM",
+                "price": 250.0,
+                "available_seats": 120
+            },
+            {
+                "flight_id": "FL003",
+                "airline_name": "SpiceJet",
+                "flight_number": "CC300",
+                "arrival_airport": "Delhi",
+                "departure_time": "11:15 AM",
+                "arrival_time": "01:15 PM",
+                "price": 180.0,
+                "available_seats": 200
+            },
+            {
+                "flight_id": "FL004",
+                "airline_name": "Vistara",
+                "flight_number": "AA101",
+                "arrival_airport": "Chennai",
+                "departure_time": "02:30 PM",
+                "arrival_time": "04:30 PM",
+                "price": 220.0,
+                "available_seats": 100
+            },
+            {
+                "flight_id": "FL005",
+                "airline_name": "Air Asia",
+                "flight_number": "BB201",
+                "arrival_airport": "Kolkata",
+                "departure_time": "07:45 AM",
+                "arrival_time": "09:45 AM",
+                "price": 240.0,
+                "available_seats": 130
+            },
+            {
+                "flight_id": "FL006",
+                "airline_name": "GoAir",
+                "flight_number": "CC301",
+                "arrival_airport": "Mumbai",
+                "departure_time": "10:20 AM",
+                "arrival_time": "12:20 PM",
+                "price": 190.0,
+                "available_seats": 180
+            },
+            {
+                "flight_id": "FL007",
+                "airline_name": "Air India",
+                "flight_number": "AA102",
+                "arrival_airport": "Delhi",
+                "departure_time": "03:00 PM",
+                "arrival_time": "05:00 PM",
+                "price": 210.0,
+                "available_seats": 90
+            }
+        ]
+    },
+    {
+        "departure_airport": "Kolkata",
+        "all_flights": [
+            {
+                "flight_id": "FL100",
+                "airline_name": "Indigo Airlines",
+                "flight_number": "AA100",
+                "arrival_airport": "Chennai",
+                "departure_time": "08:00 AM",
+                "arrival_time": "10:00 AM",
+                "price": 200.0,
+                "available_seats": 150
+            },
+            {
+                "flight_id": "FL101",
+                "airline_name": "Air India",
+                "flight_number": "BB200",
+                "arrival_airport": "Mumbai",
+                "departure_time": "09:30 AM",
+                "arrival_time": "11:30 AM",
+                "price": 250.0,
+                "available_seats": 120
+            },
+            {
+                "flight_id": "FL102",
+                "airline_name": "SpiceJet",
+                "flight_number": "CC300",
+                "arrival_airport": "Delhi",
+                "departure_time": "11:15 AM",
+                "arrival_time": "01:15 PM",
+                "price": 180.0,
+                "available_seats": 200
+            },
+            {
+                "flight_id": "FL103",
+                "airline_name": "Vistara",
+                "flight_number": "AA101",
+                "arrival_airport": "Chennai",
+                "departure_time": "02:30 PM",
+                "arrival_time": "04:30 PM",
+                "price": 220.0,
+                "available_seats": 100
+            },
+            {
+                "flight_id": "FL104",
+                "airline_name": "Air Asia",
+                "flight_number": "BB201",
+                "arrival_airport": "Kolkata",
+                "departure_time": "07:45 AM",
+                "arrival_time": "09:45 AM",
+                "price": 240.0,
+                "available_seats": 130
+            },
+            {
+                "flight_id": "FL105",
+                "airline_name": "GoAir",
+                "flight_number": "CC301",
+                "arrival_airport": "Mumbai",
+                "departure_time": "10:20 AM",
+                "arrival_time": "12:20 PM",
+                "price": 190.0,
+                "available_seats": 180
+            },
+            {
+                "flight_id": "FL106",
+                "airline_name": "Air India",
+                "flight_number": "AA102",
+                "arrival_airport": "Delhi",
+                "departure_time": "03:00 PM",
+                "arrival_time": "05:00 PM",
+                "price": 210.0,
+                "available_seats": 90
+            }
+        ]
+    },
+    {
+        "departure_airport": "Pune",
+        "all_flights": [
+            {
+                "flight_id": "FL200",
+                "airline_name": "Indigo Airlines",
+                "flight_number": "AA100",
+                "arrival_airport": "Chennai",
+                "departure_time": "08:00 AM",
+                "arrival_time": "10:00 AM",
+                "price": 200.0,
+                "available_seats": 150
+            },
+            {
+                "flight_id": "FL201",
+                "airline_name": "Air India",
+                "flight_number": "BB200",
+                "arrival_airport": "Mumbai",
+                "departure_time": "09:30 AM",
+                "arrival_time": "11:30 AM",
+                "price": 250.0,
+                "available_seats": 120
+            },
+            {
+                "flight_id": "FL202",
+                "airline_name": "SpiceJet",
+                "flight_number": "CC300",
+                "arrival_airport": "Delhi",
+                "departure_time": "11:15 AM",
+                "arrival_time": "01:15 PM",
+                "price": 180.0,
+                "available_seats": 200
+            },
+            {
+                "flight_id": "FL203",
+                "airline_name": "Vistara",
+                "flight_number": "AA101",
+                "arrival_airport": "Chennai",
+                "departure_time": "02:30 PM",
+                "arrival_time": "04:30 PM",
+                "price": 220.0,
+                "available_seats": 100
+            },
+            {
+                "flight_id": "FL204",
+                "airline_name": "Air Asia",
+                "flight_number": "BB201",
+                "arrival_airport": "Kolkata",
+                "departure_time": "07:45 AM",
+                "arrival_time": "09:45 AM",
+                "price": 240.0,
+                "available_seats": 130
+            },
+            {
+                "flight_id": "FL205",
+                "airline_name": "GoAir",
+                "flight_number": "CC301",
+                "arrival_airport": "Mumbai",
+                "departure_time": "10:20 AM",
+                "arrival_time": "12:20 PM",
+                "price": 190.0,
+                "available_seats": 180
+            },
+            {
+                "flight_id": "FL206",
+                "airline_name": "Air India",
+                "flight_number": "AA102",
+                "arrival_airport": "Delhi",
+                "departure_time": "03:00 PM",
+                "arrival_time": "05:00 PM",
+                "price": 210.0,
+                "available_seats": 90
+            }
+        ]
+    },
+    {
+        "departure_airport": "Delhi",
+        "all_flights": [
+            {
+                "flight_id": "FL300",
+                "airline_name": "Indigo Airlines",
+                "flight_number": "AA100",
+                "arrival_airport": "Chennai",
+                "departure_time": "08:00 AM",
+                "arrival_time": "10:00 AM",
+                "price": 200.0,
+                "available_seats": 150
+            },
+            {
+                "flight_id": "FL301",
+                "airline_name": "Air India",
+                "flight_number": "BB200",
+                "arrival_airport": "Mumbai",
+                "departure_time": "09:30 AM",
+                "arrival_time": "11:30 AM",
+                "price": 250.0,
+                "available_seats": 120
+            },
+            {
+                "flight_id": "FL302",
+                "airline_name": "SpiceJet",
+                "flight_number": "CC300",
+                "arrival_airport": "Delhi",
+                "departure_time": "11:15 AM",
+                "arrival_time": "01:15 PM",
+                "price": 180.0,
+                "available_seats": 200
+            },
+            {
+                "flight_id": "FL303",
+                "airline_name": "Vistara",
+                "flight_number": "AA101",
+                "arrival_airport": "Chennai",
+                "departure_time": "02:30 PM",
+                "arrival_time": "04:30 PM",
+                "price": 220.0,
+                "available_seats": 100
+            },
+            {
+                "flight_id": "FL304",
+                "airline_name": "Air Asia",
+                "flight_number": "BB201",
+                "arrival_airport": "Kolkata",
+                "departure_time": "07:45 AM",
+                "arrival_time": "09:45 AM",
+                "price": 240.0,
+                "available_seats": 130
+            },
+            {
+                "flight_id": "FL305",
+                "airline_name": "GoAir",
+                "flight_number": "CC301",
+                "arrival_airport": "Mumbai",
+                "departure_time": "10:20 AM",
+                "arrival_time": "12:20 PM",
+                "price": 190.0,
+                "available_seats": 180
+            },
+            {
+                "flight_id": "Fl307",
+                "airline_name": "Air India",
+                "flight_number": "AA102",
+                "arrival_airport": "Delhi",
+                "departure_time": "03:00 PM",
+                "arrival_time": "05:00 PM",
+                "price": 210.0,
+                "available_seats": 90
+            }
+        ]
+    },
+    {
+        "departure_airport": "Mumbai",
+        "all_flights": [
+            {
+                "flight_id": "FL400",
+                "airline_name": "Indigo Airlines",
+                "flight_number": "AA100",
+                "arrival_airport": "Chennai",
+                "departure_time": "08:00 AM",
+                "arrival_time": "10:00 AM",
+                "price": 200.0,
+                "available_seats": 150
+            },
+            {
+                "flight_id": "FL401",
+                "airline_name": "Air India",
+                "flight_number": "BB200",
+                "arrival_airport": "Mumbai",
+                "departure_time": "09:30 AM",
+                "arrival_time": "11:30 AM",
+                "price": 250.0,
+                "available_seats": 120
+            },
+            {
+                "flight_id": "FL402",
+                "airline_name": "SpiceJet",
+                "flight_number": "CC300",
+                "arrival_airport": "Delhi",
+                "departure_time": "11:15 AM",
+                "arrival_time": "01:15 PM",
+                "price": 180.0,
+                "available_seats": 200
+            },
+            {
+                "flight_id": "FL403",
+                "airline_name": "Vistara",
+                "flight_number": "AA101",
+                "arrival_airport": "Chennai",
+                "departure_time": "02:30 PM",
+                "arrival_time": "04:30 PM",
+                "price": 220.0,
+                "available_seats": 100
+            },
+            {
+                "flight_id": "FL404",
+                "airline_name": "Air Asia",
+                "flight_number": "BB201",
+                "arrival_airport": "Kolkata",
+                "departure_time": "07:45 AM",
+                "arrival_time": "09:45 AM",
+                "price": 240.0,
+                "available_seats": 130
+            },
+            {
+                "flight_id": "FL405",
+                "airline_name": "GoAir",
+                "flight_number": "CC301",
+                "arrival_airport": "Mumbai",
+                "departure_time": "10:20 AM",
+                "arrival_time": "12:20 PM",
+                "price": 1000,
+                "available_seats": 180
+            },
+            {
+                "flight_id": "FL406",
+                "airline_name": "Air India",
+                "flight_number": "AA102",
+                "arrival_airport": "Delhi",
+                "departure_time": "03:00 PM",
+                "arrival_time": "05:00 PM",
+                "price": 210.0,
+                "available_seats": 90
+            }
+        ]
+    }
+]

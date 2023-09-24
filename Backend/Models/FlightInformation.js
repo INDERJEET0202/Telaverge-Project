@@ -1,51 +1,20 @@
 const mongoose = require('mongoose');
 
 const flightInformationSchema = new mongoose.Schema({
-    flight_id: {
-        type: String,
-        required: true,
-        unique: true,
-    },
-    airline_name: {
-        type: String,
-        required: true,
-    },
-    flight_number: {
-        type: String,
-        required: true,
-    },
     departure_airport: {
         type: String,
-        required: true,
+        required: true
     },
-    arrival_airport: {
-        type: String,
-        required: true,
-    },
-    departure_date: {
-        type: Date,
-        required: true,
-    },
-    arrival_date: {
-        type: Date,
-        required: true,
-    },
-    departure_time: {
-        type: String,
-        required: true,
-    },
-    arrival_time: {
-        type: String,
-        required: true,
-    },
-    price: {
-        type: Number,
-        required: true,
-    },
-    available_seats: {
-        type: Number,
-        required: true,
-    },
+    all_flights: [{
+        flight_id: String,
+        airline_name: String,
+        flight_number: String,
+        arrival_airport: String,
+        departure_time: String,
+        arrival_time: String,
+        price: Number,
+        available_seats: Number
+    }]
 });
 
 const FlightInformation = mongoose.model('FlightInformation', flightInformationSchema);
