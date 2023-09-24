@@ -105,7 +105,7 @@ em {
   left: 0;
 }
 
-li {
+.airports-lists{
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -117,7 +117,7 @@ li {
   border-radius: 5px;
 }
 
-li:hover {
+.airports-lists:hover {
   background-color: #eee;
   cursor: pointer;
 }

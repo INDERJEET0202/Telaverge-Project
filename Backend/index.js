@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
 dotenv.config();
-const FlightInformation = require("./Models/FlightInformation");
+// const FlightInformation = require("./Models/FlightInformation");
 
 const app = express();
 app.use(express.json());

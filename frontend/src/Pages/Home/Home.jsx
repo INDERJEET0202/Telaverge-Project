@@ -133,7 +133,7 @@ const Home = () => {
                             {isOpen === true && <div className='dropdown-airport'>
                                 <div className='airports-list'>
                                     {jsonData.airports.map((items, key) =>
-                                    (<li onClick={() => { handleDepartureCityClick(items) }} key={key}>
+                                    (<li className='airports-lists' onClick={() => { handleDepartureCityClick(items) }} key={key}>
                                         <section>
                                             <p className='airport-city'>{items.city}, {items.country}</p>
                                             <p className='airport'>{items.airport_name}</p>
@@ -161,7 +161,7 @@ const Home = () => {
                             {isOpenTo === true && <div className='dropdown-airport'>
                                 <div className='airports-list'>
                                     {jsonData.airports.map((items, key) =>
-                                    (<li onClick={() => { handleArrivalCityClick(items) }} key={key}>
+                                    (<li className='airports-lists' onClick={() => { handleArrivalCityClick(items) }} key={key}>
                                         <section>
                                             <p className='airport-city'>{items.city}, {items.country}</p>
                                             <p className='airport'>{items.airport_name}</p>
