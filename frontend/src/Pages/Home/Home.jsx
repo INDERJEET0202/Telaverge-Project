@@ -1,20 +1,56 @@
 import React, { useState, useEffect } from 'react'
 import "../Home/Home.css"
-import jsonData from "../../assets/json-data/citiesAirport.json"
+import jsonData from "../../assets/json-data/citiesAirport.json";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
 
     const [isOpen, setIsOpen] = useState(false);
-    const [isOpenTo, setIsOpenTo] = useState(false)
+    const [isOpenTo, setIsOpenTo] = useState(false);
+    const [departure, setDeparture] = useState(null);
+    const [arrival, setArrival] = useState(null);
+    const [date, setDate] = useState(new Date());
+    const [selectDate, setSelectDate] = useState(new Date());
+    const [dateOpen, setDateOpen] = useState(false);
+    const [passengerCount, setPassengerCount] = useState(1);
+
+    const incrementPassenger = () => {
+        setPassengerCount(prevCount => prevCount + 1);
+    };
+
+    const decrementPassenger = () => {
+        if (passengerCount > 1) {
+            setPassengerCount(prevCount => prevCount - 1);
+        }
+    };
+
+    const handleDateChange = (date) => {
+        setSelectDate(date);
+        setDateOpen(false);
+    };
+
+    const handleDepartureCityClick = (items) => {
+        setDeparture(items);
+        setIsOpen(false);
+    };
+
+    const handleArrivalCityClick = (items) => {
+        setArrival(items);
+        setIsOpenTo(false);
+    }
 
     const handleOutsideClick = (event) => {
         if (!event.target.closest('.flight')) {
             setIsOpen(false);
+            setIsOpenTo(false);
+            setDateOpen(false);
         }
     };
 
     useEffect(() => {
-        // console.log(jsonData);
         if (isOpen) {
             document.body.addEventListener('click', handleOutsideClick);
         }
@@ -22,6 +58,53 @@ const Home = () => {
             document.body.removeEventListener('click', handleOutsideClick);
         };
     }, [isOpen]);
+
+    useEffect(() => {
+        if (isOpenTo) {
+            document.body.addEventListener('click', handleOutsideClick);
+        }
+        return () => {
+            document.body.removeEventListener('click', handleOutsideClick);
+        };
+    }, [isOpenTo]);
+
+    useEffect(() => {
+        if (dateOpen) {
+            document.body.addEventListener('click', handleOutsideClick);
+        }
+        return () => {
+            document.body.removeEventListener('click', handleOutsideClick);
+        };
+    }, [dateOpen]);
+
+    const inputDate = new Date(selectDate);
+
+    const monthNames = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
+
+    const day = inputDate.getDate();
+    const month = monthNames[inputDate.getMonth()];
+    const year = inputDate.getFullYear();
+    const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][inputDate.getDay()];
+
+    const outputHTML = `<h1>${day}<em>${month}'${year.toString().slice(-2)}</em></h1>\n<span className='day'>${dayOfWeek}</span>`;
+
+    // console.log(outputHTML);
+
+    const handleSubmit = () => {
+        const formData = {
+            from: departure,
+            to: arrival,
+            departure: selectDate,
+            travellers: passengerCount
+        };
+        if (!formData.from || !formData.to || !formData.departure || !formData.travellers) {
+            toast.error("Please fill in all the required fields.");
+        } else {
+            console.log(formData);
+        }
+    };
 
     return (
         <>
@@ -31,23 +114,32 @@ const Home = () => {
                 </div>
                 <div className="container">
                     <div className="info">
-                        up info
+                        {/* up info */}
                     </div>
                     <div className="find-flight">
                         <div className="flight">
                             <button className='booking-btns' onClick={() => { setIsOpen((isOpen) => { return !isOpen }) }}>From<i className="ri-arrow-down-s-line"></i></button>
-                            <h1 className='city'>Delhi</h1>
-                            <span className='airport-name'>DEL, Delhi Airport India</span>
+                            {departure ? (
+                                <>
+                                    <h1 className='city'>{departure.city}  <i className="ri-flight-takeoff-line"></i></h1>
+                                    <span className='airport-name'>{departure.code},{departure.airport_name}</span>
+                                </>
+                            ) : (
+                                <>
+                                    <h1 className='city'>Delhi   <i className="ri-flight-takeoff-line"></i></h1>
+                                    <span className='airport-name'>DEL, Delhi Airport India</span>
+                                </>
+                            )}
                             {isOpen === true && <div className='dropdown-airport'>
                                 <div className='airports-list'>
                                     {jsonData.airports.map((items, key) =>
-                                        (<li onClick={()=>{console.log(items)}} key={key}>
-                                            <section>
-                                                <p className='airport-city'>{items.city}, {items.country}</p>
-                                                <p className='airport'>{items.airport_name}</p>
-                                            </section>
-                                            <p className='code'>{items.code}</p>
-                                        </li>)
+                                    (<li onClick={() => { handleDepartureCityClick(items) }} key={key}>
+                                        <section>
+                                            <p className='airport-city'>{items.city}, {items.country}</p>
+                                            <p className='airport'>{items.airport_name}</p>
+                                        </section>
+                                        <p className='code'>{items.code}</p>
+                                    </li>)
                                     )}
 
                                 </div>
@@ -55,35 +147,80 @@ const Home = () => {
                         </div>
                         <div className="flight">
                             <button className=' booking-btns' onClick={() => { setIsOpenTo((isOpenTo) => { return !isOpenTo }) }}>To<i className="ri-arrow-down-s-line"></i></button>
-                            <h1 className='city'>Bangaluru</h1>
-                            <span className='airport-name'>BLR, Kempegawon International air...</span>
+                            {arrival ? (
+                                <>
+                                    <h1 className='city'>{arrival.city}  <i className="ri-flight-land-line"></i></h1>
+                                    <span className='airport-name'>{arrival.code}, {arrival.airport_name}</span>
+                                </>
+                            ) : (
+                                <>
+                                    <h1 className='city'>Delhi   <i className="ri-flight-land-line"></i></h1>
+                                    <span className='airport-name'>DEL, Delhi Airport India</span>
+                                </>
+                            )}
                             {isOpenTo === true && <div className='dropdown-airport'>
                                 <div className='airports-list'>
-                                    <li>
+                                    {jsonData.airports.map((items, key) =>
+                                    (<li onClick={() => { handleArrivalCityClick(items) }} key={key}>
                                         <section>
-                                            <p className='airport-city'>Delhi, India</p>
-                                            <p className='airport'>Chhatrapati Shivaji International Airport</p>
+                                            <p className='airport-city'>{items.city}, {items.country}</p>
+                                            <p className='airport'>{items.airport_name}</p>
                                         </section>
-                                        <p className='code'>BOM</p>
-
-                                    </li>
+                                        <p className='code'>{items.code}</p>
+                                    </li>)
+                                    )}
 
                                 </div>
                             </div>}
                         </div>
                         <div className="flight">
-                            <button className=' booking-btns'>Departure<i className="ri-arrow-down-s-line"></i></button>
-                            <h1>3<em>Oct'23</em></h1>
-                            <span className='airport-name'>Tuesday</span>
+                            <button className='booking-btns' onClick={() => { setDateOpen((dateOpen) => { return !dateOpen }) }}>Departure<i className="ri-arrow-down-s-line"></i></button>
+                            {dateOpen === true && <Calendar className="calender" value={selectDate} onChange={handleDateChange} />}
+                            {selectDate ? (
+                                <>
+                                    <h1>{day}<em>{month}'{year.toString().slice(-2)}</em></h1>
+                                    <span className='day'>{dayOfWeek}</span>
+                                </>
+                            ) : (
+                                <>
+                                    <h1>26<em>Sep'23</em></h1>
+                                    <span className='day'>Tuesday</span>
+                                </>)}
                         </div>
                         <div className="flight last-div">
-                            <button className='booking-btns'>Traveller<i className="ri-arrow-down-s-line"></i></button>
-                            <h1>1<em>Traveller</em></h1>
+                            <button className='booking-btns' onClick={decrementPassenger}>
+                                Travellers
+                            </button>
+                            <h1>{passengerCount}<em>Traveller(Adult)</em>
+                                <button className='booking-btns' onClick={incrementPassenger}>
+                                    <i className="ri-add-line"></i>
+                                </button>
+                                <button className='booking-btns' onClick={decrementPassenger}>
+                                    <i className="ri-subtract-line"></i>
+                                </button></h1>
                             <span className='airport-name'>Economy/Premium Economy</span>
                         </div>
                     </div>
+                    <div className='center'>
+                        <button className='submit-btn' onClick={handleSubmit}>
+                            SEARCH
+                        </button>
+                    </div>
+
                 </div>
             </div>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </>
     )
 }
