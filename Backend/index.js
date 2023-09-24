@@ -42,7 +42,7 @@ async function insertFlightData() {
     }
 }
 
-// insertFlightData();
+// insertFlightData(); Insert all the demo data to the database
 
 app.post('/flight-informations', async (req, res) => {
     try {
