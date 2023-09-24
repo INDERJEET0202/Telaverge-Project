@@ -1,4 +1,66 @@
-.main-div-element{
-    background-color: violet !important;
-    
+.main-content{
+    background-color: rgb(255, 235, 255) !important;
+    margin-top: 5rem;
+    height: 40vh;
+    width: 150vh;
+    overflow: auto; /* or overflow: hidden; depending on your design preference */
+    height: auto;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-flights{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    text-align: center;
+    margin: 2rem;
+}
+
+.bolder{
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.smaller{
+    font-size: 0.7rem;
+    font-weight: 300;
+}
+
+.all-set{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ri-git-commit-line{
+    margin: 0;
+    padding: 0;
+}
+
+.line{
+    height: 100px;
+}
+
+.logo-name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name-number{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-small{
+    height: 2rem;
+    padding-right: 10px;
 }
