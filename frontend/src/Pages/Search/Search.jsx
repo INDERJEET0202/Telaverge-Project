@@ -7,6 +7,12 @@ import { searchFlightRoute } from '../../utils/APIRoutes';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLocation } from 'react-router-dom';
+import spiceJetLogo from "../../assets/SpiceJet-Logo.png";
+import airIndiaLogo from "../../assets/airindia.jpg";
+import airAsiaLogo from "../../assets/airasia.png"
+import indigoLogo from "../../assets/IndiGo-Logo.png"
+import jetAirWaysLogo from "../../assets/jetairways.png"
+import vistaraLogo from "../../assets/vistara.jpg"
 
 const Search = () => {
 
@@ -15,6 +21,17 @@ const Search = () => {
     const { state } = useLocation();
     const fromCity = state.fromCity;
     const toCity = state.toCity;
+
+    const imagesAirlines = {
+        "Indigo Airlines": indigoLogo,
+        "Air India": airIndiaLogo,
+        "SpiceJet": spiceJetLogo,
+        "Vistara": vistaraLogo,
+        "Air Asia": airAsiaLogo,
+        "GoAir": demoImage,
+        "Jet Airways": jetAirWaysLogo,
+        "IndiGo Airlines": indigoLogo,
+    };
 
 
     useEffect(() => {
@@ -70,7 +87,7 @@ const Search = () => {
                         <div className='search-flights' key={key}>
                             <div className="logo-name">
                                 <div className="logu">
-                                    <img className='image-small' src={demoImage} alt="" />
+                                    <img className='image-small' src={imagesAirlines[flight.airline_name]} alt="" />
                                 </div>
                                 <div className="name-number">
                                     <p className='bolder'>{flight.airline_name}</p>

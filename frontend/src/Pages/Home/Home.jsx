@@ -113,12 +113,6 @@ const Home = () => {
             departure: selectDate,
             travellers: passengerCount
         };
-        // if (!formData.from || !formData.to || !formData.departure || !formData.travellers) {
-        //     toast.error("Please fill in all the required fields.");
-        // } else {
-        //     // console.log(formData);
-        //     console.log("Search btn clicked");
-        // };
 
         const fromCity = formData?.from?.city;
         const toCity = formData?.to?.city;
