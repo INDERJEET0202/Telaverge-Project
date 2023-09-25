@@ -137,7 +137,6 @@ const Home = () => {
             else {
                 toast.error("Select Arrival and Departure both");
             }
-
         } catch (error) {
             console.log(error);
             toast.error("Something went wrong. Please try again later.");
@@ -243,7 +242,7 @@ const Home = () => {
                     <div className="lower-content">
                         {fromCity && toCity && <div className="recent-searches">
                             <h4>Recent Searches</h4>
-                            <p style={{ textTransform: "uppercase", fontWeight: "300" }}> {fromCity} <i style={{ margin: "0 1rem" }} className="ri-arrow-right-line"></i> {toCity}</p>
+                            <p style={{ textTransform: "uppercase", fontWeight: "300" }}> <i class="ri-search-line"></i> {fromCity} <i style={{ margin: "0 1rem" }} className="ri-arrow-right-line"></i> {toCity}</p>
                         </div>
                         }
 

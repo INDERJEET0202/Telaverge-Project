@@ -322,3 +322,7 @@ abbr[title] {
   display: flex;
   justify-content: space-between;
 }
+
+.ri-search-line{
+  margin-right: 1rem;
+}

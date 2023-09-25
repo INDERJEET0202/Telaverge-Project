@@ -52,8 +52,8 @@ const Search = () => {
         const arrivalHour = parseInt(arrivalTimeSplit[0]);
         const arrivalMinute = parseInt(arrivalTimeSplit[1]);
 
-        const durationHour = arrivalHour - departureHour;
-        const durationMinute = arrivalMinute - departureMinute;
+        const durationHour = Math.abs(arrivalHour - departureHour);
+        const durationMinute = Math.abs(arrivalMinute - departureMinute);
 
         return `${durationHour}h ${durationMinute}m`;
     }
@@ -96,7 +96,7 @@ const Search = () => {
                                     <p className="smaller">per adult</p>
                                 </div>
                                 <div className="availaible-seats all-set">
-                                    <p className='bolder'> 
+                                    <p className='bolder'>
                                         {flight.available_seats}
                                     </p>
                                     <p className='smaller'>Available Seats</p>
