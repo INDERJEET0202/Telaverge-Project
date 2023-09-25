@@ -87,7 +87,7 @@ const Search = () => {
                         <div className='search-flights' key={key}>
                             <div className="logo-name">
                                 <div className="logu">
-                                    <img className='image-small' src={demoImage} alt="" />
+                                    <img className='image-small' src={imagesAirlines[flight.airline_name]} alt="" />
                                 </div>
                                 <div className="name-number">
                                     <p className='bolder'>{flight.airline_name}</p>
