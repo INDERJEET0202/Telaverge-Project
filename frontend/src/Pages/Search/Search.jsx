@@ -92,7 +92,7 @@ const Search = () => {
                             </div>
                             <div className="price-seats">
                                 <div className="price all-set">
-                                    <p className='bolder'>Rs{flight.price}</p>
+                                    <p className='bolder'>Rs {flight.price}</p>
                                     <p className="smaller">per adult</p>
                                 </div>
                                 <div className="availaible-seats all-set">
