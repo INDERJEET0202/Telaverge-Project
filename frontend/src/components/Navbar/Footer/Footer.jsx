@@ -6,7 +6,7 @@ const Footer = () => {
         <>
             <footer class="page-footer font-small blue footer fixed-bottom">
                 <div class="footer-copyright text-center py-3">© 2023 Copyright:
-                    <a>flightheaven.com</a>
+                    <a> flightheaven.com</a>
                 </div>
             </footer>
         </>
