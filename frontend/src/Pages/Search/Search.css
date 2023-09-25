@@ -1,24 +1,37 @@
 .main-content{
-    background-color: rgb(255, 235, 255) !important;
-    margin-top: 5rem;
-    height: 40vh;
-    width: 150vh;
+    /* background-color: rgb(255, 235, 255) !important; */
+    margin-top: 3rem;
+    height: 90vh;
+    width: 65vw;
     overflow: auto; /* or overflow: hidden; depending on your design preference */
     height: auto;
 }
 
 .header{
     display: flex;
+    padding-bottom: 4.5rem;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(
+        0deg,
+        rgb(36, 144, 216) 0%,
+        rgb(7, 30, 80) 50%,
+        rgb(0, 0, 0) 100%
+      );
 }
 
 .search-flights{
-    display: flex;
-    justify-content: space-between;
-    /* align-items: center; */
+    background-color: rgb(255, 255, 255) ;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 1rem;
+    /* justify-content: space-between; */
+    align-items: center;
     text-align: center;
-    margin: 2rem;
+    margin-bottom: 1rem;
+    padding:2rem;
+    border-radius: 5px;
 }
 
 .bolder{
@@ -27,7 +40,7 @@
 }
 
 .smaller{
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 300;
 }
 
@@ -49,7 +62,7 @@
 
 .logo-name{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
 }
 
@@ -63,4 +76,21 @@
 .image-small{
     height: 2rem;
     padding-right: 10px;
+}
+
+.price-seats{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.journeyTitle{
+    color: rgb(255, 255, 255);
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 1.8rem;
+    padding: 2rem 1rem;
+    /* margin-bottom: 2rem; */
+    /* background-color: white; */
+    border-radius: 5px;
 }

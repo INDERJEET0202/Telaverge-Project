@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Link, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 import "../Home/Home.css"
 import jsonData from "../../assets/json-data/citiesAirport.json";
 import Calendar from 'react-calendar';
@@ -19,6 +22,8 @@ const Home = () => {
     const [selectDate, setSelectDate] = useState(new Date());
     const [dateOpen, setDateOpen] = useState(false);
     const [passengerCount, setPassengerCount] = useState(1);
+
+    const navigate = useNavigate();
 
     const incrementPassenger = () => {
         setPassengerCount(prevCount => prevCount + 1);
@@ -95,6 +100,11 @@ const Home = () => {
 
     // console.log(outputHTML);
 
+    const fromCity = localStorage.getItem('fromCity') === undefined ? "city1" : localStorage.getItem('fromCity');
+    const toCity = localStorage.getItem('toCity') === undefined ? "city2" : localStorage.getItem('toCity');
+
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = {
@@ -103,28 +113,37 @@ const Home = () => {
             departure: selectDate,
             travellers: passengerCount
         };
-        if (!formData.from || !formData.to || !formData.departure || !formData.travellers) {
-            toast.error("Please fill in all the required fields.");
-        } else {
-            // console.log(formData);
-            console.log("Search btn clicked");
-        };
+        // if (!formData.from || !formData.to || !formData.departure || !formData.travellers) {
+        //     toast.error("Please fill in all the required fields.");
+        // } else {
+        //     // console.log(formData);
+        //     console.log("Search btn clicked");
+        // };
 
+        const fromCity = formData?.from?.city;
+        const toCity = formData?.to?.city;
 
-        const fromCity = formData.from.city;
-        const toCity = formData.to.city;
+        try {
+            if (formData.from && formData.to) {
+                const response = await axios.post(searchFlightRoute, { fromCity, toCity });
+                console.log(response.data.citiesInfo);
+                console.log(response.data.airportsName);
 
-        try{
-            const response = await axios.post(searchFlightRoute, {fromCity, toCity});
-            console.log(response.data.citiesInfo);
-            console.log(response.data.airportsName);
+                // toast.success("Fetched Successfully");
+                localStorage.setItem('fromCity', fromCity);
+                localStorage.setItem('toCity', toCity);
+                navigate('/flights/search', { state: { 'fromCity': fromCity, 'toCity': toCity } });
+            }
+            else {
+                toast.error("Select Arrival and Departure both");
+            }
 
-            toast.success("Fetched Successfully");
-        } catch (error){
+        } catch (error) {
             console.log(error);
             toast.error("Something went wrong. Please try again later.");
         }
     };
+
 
     return (
         <>
@@ -146,8 +165,8 @@ const Home = () => {
                                 </>
                             ) : (
                                 <>
-                                    <h1 className='city'>Delhi   <i className="ri-flight-takeoff-line"></i></h1>
-                                    <span className='airport-name'>DEL, Delhi Airport India</span>
+                                    <h1 className='city'>Select <i className="ri-flight-takeoff-line"></i></h1>
+                                    <span className='airport-name'>IND, Airports</span>
                                 </>
                             )}
                             {isOpen === true && <div className='dropdown-airport'>
@@ -174,8 +193,8 @@ const Home = () => {
                                 </>
                             ) : (
                                 <>
-                                    <h1 className='city'>Delhi   <i className="ri-flight-land-line"></i></h1>
-                                    <span className='airport-name'>DEL, Delhi Airport India</span>
+                                    <h1 className='city'>Select   <i className="ri-flight-land-line"></i></h1>
+                                    <span className='airport-name'>IND, Airports</span>
                                 </>
                             )}
                             {isOpenTo === true && <div className='dropdown-airport'>
@@ -221,13 +240,21 @@ const Home = () => {
                             <span className='airport-name'>Economy/Premium Economy</span>
                         </div>
                     </div>
-                    <div className='center'>
-                        <button className='submit-btn' onClick={handleSubmit}>
+                    <div className="lower-content">
+                        {fromCity && toCity && <div className="recent-searches">
+                            <h4>Recent Searches</h4>
+                            <p style={{ textTransform: "uppercase", fontWeight: "300" }}> {fromCity} <i style={{ margin: "0 1rem" }} className="ri-arrow-right-line"></i> {toCity}</p>
+                        </div>
+                        }
+
+                    </div>
+                    <div className='center no-underline'>
+                        <button onClick={handleSubmit} className='submit-btn'>
                             SEARCH
                         </button>
                     </div>
                     {/* <img className='wave' src={waveSvg} alt="" /> */}
-                    
+
 
                 </div>
             </div>
