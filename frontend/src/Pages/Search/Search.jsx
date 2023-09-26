@@ -53,9 +53,9 @@ const Search = () => {
                 toast.error("Something went wrong. Please try again later.");
             }
         }
+        fetchFlights();
 
         return (() => {
-            fetchFlights();
             console.log("Flight fetched");
         })
     }, []);
