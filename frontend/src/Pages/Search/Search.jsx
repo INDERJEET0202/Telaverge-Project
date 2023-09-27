@@ -17,6 +17,7 @@ import vistaraLogo from "../../assets/vistara.jpg"
 const Search = () => {
 
     const [citiesInfos, setCitiesInfo] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const { state } = useLocation();
     const fromCity = state.fromCity;
@@ -45,10 +46,12 @@ const Search = () => {
                 // console.log(response.data.airportsName);
                 const citiesInfos = response.data.citiesInfo || [];
                 setCitiesInfo(citiesInfos);
+                setIsLoading(false);
                 console.log(citiesInfos);
 
                 toast.success("Fetched Successfully");
             } catch (error) {
+                setIsLoading(false);
                 console.log(error);
                 toast.error("Something went wrong. Please try again later.");
             }
@@ -83,45 +86,54 @@ const Search = () => {
                     <div className="journeyTitle">
                         <p>Flight from {fromCity} to {toCity} :</p>
                     </div>
-                    {citiesInfos.map((flight, key) => (
-                        <div className='search-flights' key={key}>
-                            <div className="logo-name">
-                                <div className="logu">
-                                    <img className='image-small' src={imagesAirlines[flight.airline_name]} alt="" />
-                                </div>
-                                <div className="name-number">
-                                    <p className='bolder'>{flight.airline_name}</p>
-                                    <p className='smaller'>{flight.flight_number}</p>
-                                </div>
+                    {isLoading ? (
+                        <div className="loader">
+                            <div className="spinner-border" style={{height: "3rem", width: "3rem"}} role="status">
+                                <span className="sr-only"></span>
                             </div>
-                            <div className="departure-time all-set">
-                                <p className='bolder'>{flight.departure_time}</p>
-                                <p className='smaller'>{fromCity}</p>
-                            </div>
-                            <div className="duration all-set">
-                                <p className='smaller'>{calcDuration(flight.departure_time, flight.arrival_time)}</p>
-                                <i className="ri-git-commit-line"></i>
-                                <p className='smaller'>{flight.non_stop ? 'Stopover' : 'Non Stop'}</p>
-                            </div>
-                            <div className="arrival-time all-set">
-                                <p className='bolder'>{flight.arrival_time}</p>
-                                <p className='smaller'>{flight.arrival_airport}</p>
-                            </div>
-                            <div className="price-seats">
-                                <div className="price all-set">
-                                    <p className='bolder'>Rs {flight.price}</p>
-                                    <p className="smaller">per adult</p>
-                                </div>
-                                <div className="availaible-seats all-set">
-                                    <p className='bolder'>
-                                        {flight.available_seats}
-                                    </p>
-                                    <p className='smaller'>Available Seats</p>
-                                </div>
-                            </div>
-
                         </div>
-                    ))}
+                    ) : (
+                        citiesInfos.map((flight, key) => (
+                            <div className='search-flights' key={key}>
+                                <div className="logo-name">
+                                    <div className="logu">
+                                        <img className='image-small' src={imagesAirlines[flight.airline_name]} alt="" />
+                                    </div>
+                                    <div className="name-number">
+                                        <p className='bolder'>{flight.airline_name}</p>
+                                        <p className='smaller'>{flight.flight_number}</p>
+                                    </div>
+                                </div>
+                                <div className="departure-time all-set">
+                                    <p className='bolder'>{flight.departure_time}</p>
+                                    <p className='smaller'>{fromCity}</p>
+                                </div>
+                                <div className="duration all-set">
+                                    <p className='smaller'>{calcDuration(flight.departure_time, flight.arrival_time)}</p>
+                                    <i className="ri-git-commit-line"></i>
+                                    <p className='smaller'>{flight.non_stop ? 'Stopover' : 'Non Stop'}</p>
+                                </div>
+                                <div className="arrival-time all-set">
+                                    <p className='bolder'>{flight.arrival_time}</p>
+                                    <p className='smaller'>{flight.arrival_airport}</p>
+                                </div>
+                                <div className="price-seats">
+                                    <div className="price all-set">
+                                        <p className='bolder'>Rs {flight.price}</p>
+                                        <p className="smaller">per adult</p>
+                                    </div>
+                                    <div className="availaible-seats all-set">
+                                        <p className='bolder'>
+                                            {flight.available_seats}
+                                        </p>
+                                        <p className='smaller'>Available Seats</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        ))
+                    )
+                    }
                 </div>
             </div>
             <ToastContainer

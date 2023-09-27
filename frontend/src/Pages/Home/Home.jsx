@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Link, Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 import "../Home/Home.css"
 import jsonData from "../../assets/json-data/citiesAirport.json";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import waveSvg from '../../assets/wave.svg'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
