@@ -5,6 +5,9 @@ dotenv.config();
 const FlightInformation = require('./Models/FlightInformation');
 const cors = require("cors");
 
+const fs = require('fs');
+const filePath = "./log.txt"
+
 
 const app = express();
 app.use(express.json());
@@ -58,6 +61,7 @@ app.post('/flight-informations', async (req, res) => {
 app.post('/getFlight', async (req, res) => {
     const departureCity = req.body.fromCity;
     const arrivalCity = req.body.toCity;
+
     try {
         const flightInformations = await FlightInformation.find({ departure_airport: departureCity });
         const allFlights = flightInformations.map(info => info.all_flights);
@@ -73,10 +77,23 @@ app.post('/getFlight', async (req, res) => {
                 arrival_airports.push(flight.arrival_airport);
             });
         });
+
         console.log(`Arrival airports ${arrival_airports}`);
         console.log(`Arrival city information ${arrivalCityInformation}`);
 
-        res.json({citiesInfo: arrivalCityInformation, airportsName: arrival_airports});
+        const str = `Arrival airports ${arrival_airports} Arrival City information ${arrivalCityInformation}
+        
+        `
+
+        fs.writeFile(filePath, str, {flag: 'a+'}, (err) => {
+            if (err) {
+                console.error('Error writing to file:', err);
+            } else {
+                console.log(`Data has been written to ${filePath}`);
+            }
+        });
+
+        res.json({ citiesInfo: arrivalCityInformation, airportsName: arrival_airports });
     }
     catch (error) {
         console.error(error);

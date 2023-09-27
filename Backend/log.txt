@@ -1,0 +1,33 @@
+Arrival airports Chennai,Mumbai,Delhi,Chennai,Kolkata,Mumbai,Delhi,Chennai,Kashmir,Mumbai,Kolkata,Pune Arrival City information {
+  flight_id: 'FL301',
+  airline_name: 'Air India',
+  flight_number: 'BB200',
+  arrival_airport: 'Mumbai',
+  departure_time: '09:30 AM',
+  arrival_time: '11:30 AM',
+  price: 250,
+  available_seats: 120,
+  _id: new ObjectId("6510684adf300fdd64557c94")
+},{
+  flight_id: 'FL305',
+  airline_name: 'GoAir',
+  flight_number: 'CC301',
+  arrival_airport: 'Mumbai',
+  departure_time: '10:20 AM',
+  arrival_time: '12:20 PM',
+  price: 190,
+  available_seats: 180,
+  _id: new ObjectId("6510684adf300fdd64557c98")
+},{
+  flight_id: 'FL310',
+  airline_name: 'IndiGo Airlines',
+  flight_number: 'FF600',
+  arrival_airport: 'Mumbai',
+  departure_time: '12:15 PM',
+  arrival_time: '02:15 PM',
+  price: 230,
+  available_seats: 140,
+  _id: new ObjectId("6510684adf300fdd64557c9c")
+}
+        
+        
