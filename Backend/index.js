@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('Hello, world!');
+    res.send('Welcome to the root endpoint of FlightHeaven Services ♥️');
 });
 const port = process.env.PORT || 4001;
 
