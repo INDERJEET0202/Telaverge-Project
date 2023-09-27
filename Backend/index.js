@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('Welcome to the root endpoint of FlightHeaven Services ♥️');
+    res.send('Welcome to the "/" endpoint of FlightHeaven Services ♥️ .  Go live with Vercel ' + `Port: ${port}`);
 });
 const port = process.env.PORT || 4001;
 
