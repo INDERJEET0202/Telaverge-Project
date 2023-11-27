@@ -37,9 +37,9 @@ const Search = () => {
 
     useEffect(() => {
         const fetchFlights = async () => {
-            // const fromCity = localStorage.getItem('fromCity');
-            // setFromCityy(fromCity);
-            // const toCity = localStorage.getItem('toCity');
+            const fromCity = localStorage.getItem('fromCity');
+            setFromCityy(fromCity);
+            const toCity = localStorage.getItem('toCity');
             try {
                 const response = await axios.post(searchFlightRoute, { fromCity, toCity });
                 // console.log(response.data.citiesInfo);
