@@ -117,11 +117,11 @@ const Home = () => {
 
         try {
             if (formData.from && formData.to) {
-                // const response = await axios.post(searchFlightRoute, { fromCity, toCity });
-                // console.log(response.data.citiesInfo);
-                // console.log(response.data.airportsName);
+                const response = await axios.post(searchFlightRoute, { fromCity, toCity });
+                console.log(response.data.citiesInfo);
+                console.log(response.data.airportsName);
 
-                // toast.success("Fetched Successfully");
+                toast.success("Fetched Successfully");
                 localStorage.setItem('fromCity', fromCity);
                 localStorage.setItem('toCity', toCity);
                 navigate('/flights/search', { state: { 'fromCity': fromCity, 'toCity': toCity } });
